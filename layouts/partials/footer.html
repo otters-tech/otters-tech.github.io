@@ -1,25 +1,19 @@
 {{- if not (.Param "hideFooter") }}
 <footer class="footer">
-    {{- if not site.Params.footer.hideCopyright }}
-    {{- if site.Copyright }}
-    <span>{{ site.Copyright | markdownify }}</span>
+  {{- if not site.Params.footer.hideCopyright }}
+    {{- with site.Copyright }}
+      <span>{{ . | markdownify }}</span>
     {{- else }}
-    <span>&copy; {{ now.Year }} {{ site.Title }}</span>
+      <span>&copy; {{ now.Format "2006" }} {{ site.Title }}</span>
     {{- end }}
-    {{- print " · "}}
-    {{- end }}
+  {{- end }}
 
-    {{- with site.Params.footer.text }}
-    {{ . | markdownify }}
-    {{- print " · "}}
-    {{- end }}    
-    <span>
-    Powered by 
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">hugo</a>, <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">papermod</a>, &amp;
-        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">hugo-website</a>.
-    </span>
+  {{- with site.Params.footer.text }}
+    <span>{{ . | markdownify }}</span>
+  {{- end }}
 </footer>
 {{- end }}
+
 
 {{- if (not site.Params.disableScrollToTop) }}
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -139,3 +133,100 @@
     });
 </script>
 {{- end }}
+
+{{ if .IsHome }}
+  <!-- Background video layer -->
+  <div class="video-bg" aria-hidden="true">
+    <video id="otterHeroVideo" autoplay muted loop playsinline>
+      <source src='{{ "video/bg.mp4" | relURL }}' type="video/mp4">
+    </video>
+  </div>
+
+  <style>
+    /* ===== Tweakables ===== */
+    :root{
+      --hero-plate-width: min(1100px, 92vw);   /* max width of the white plate */
+      --hero-plate-pad-block: 48px;            /* vertical padding */
+      --hero-plate-pad-inline: 40px;           /* horizontal padding */
+      --hero-plate-radius: 24px;
+      --hero-plate-bg: rgba(255,255,255,.92);  /* 1 = pure white */
+      --hero-plate-shadow: 0 12px 36px rgba(0,0,0,.14);
+    }
+
+    /* Background video behind everything */
+    .video-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
+    .video-bg::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.30); }
+    .video-bg video { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+
+    /* Keep page content above the video */
+    #main, main, .main, .profile-mode, .home-info { position: relative; z-index: 1; }
+
+    /* We previously made cards transparent. Keep that, but we will explicitly
+       set the hero container's background back to a white plate below. */
+    .profile-mode, .home-info, .first-entry, .page, .post-entry {
+      background: transparent !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+    }
+
+    /* ====== Put the big white plate directly on the hero container ======
+       PaperMod profileMode uses .profile-mode .profile-inner.
+       Some variants also wrap it with .home-info.
+       We style BOTH so it works on your build. */
+    .profile-mode .profile-inner,
+    .home-info {
+      background: var(--hero-plate-bg) !important;
+      border-radius: var(--hero-plate-radius) !important;
+      box-shadow: var(--hero-plate-shadow) !important;
+
+      width: var(--hero-plate-width);
+      max-width: 100%;
+      margin: 0 auto;
+
+      padding: var(--hero-plate-pad-block) var(--hero-plate-pad-inline);
+    }
+
+    /* Dark text on the white plate */
+    .profile-mode .profile-inner h1,
+    .profile-mode .profile-inner p,
+    .home-info h1,
+    .home-info p,
+    .home-info .buttons a {
+      color: #0f172a !important;
+      text-shadow: none !important;
+    }
+
+    /* Small screens: tighten plate */
+    @media (max-width: 640px){
+      :root{
+        --hero-plate-pad-block: 28px;
+        --hero-plate-pad-inline: 18px;
+        --hero-plate-radius: 18px;
+      }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .video-bg video { display: none; }
+      .video-bg { background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.6)); }
+    }
+  </style>
+
+  <script>
+    // Loop fallback & autoplay kick (just in case)
+    (function(){
+      const v = document.getElementById('otterHeroVideo');
+      if (!v) return;
+      v.addEventListener('ended', function(){
+        try { v.currentTime = 0; v.play(); } catch(e) {}
+      });
+      const kick = () => { v.muted = true; v.play().catch(()=>{}); window.removeEventListener('click', kick); };
+      window.addEventListener('click', kick, { once: true });
+    })();
+  </script>
+{{ end }}
+
+
+
+
+

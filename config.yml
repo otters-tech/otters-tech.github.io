@@ -1,5 +1,5 @@
 baseURL: "https://pascalmichaillat.org/hugo-website/" 
-title: Moritz-Maria von Igelfeld
+title: Otter Tech Limited
 theme: PaperMod
 
 enableInlineShortcodes: true
@@ -12,25 +12,28 @@ taxonomies:
 
 menu:
     main:
-        - name: Books
-          url: books/
+        - name: News
+          url: news/
           weight: 5 
-        - name: Papers
-          url: papers/
+        - name: Projects
+          url: projects/
           weight: 2
         - name: Courses
           url: courses/
           weight: 3
-        - name: Data
-          url: data/
+        - name: Papers
+          url: papers/
           weight: 4 
-        - name: Blog
-          url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+        - name: People
+          url: people/
           weight: 6
+        - name: Contact
+          url: contact/
+          weight: 7
 
 params:
     description: "This website hosts Moritz-Maria von Igelfeld's research papers, books, course materials, data, curriculum vitae, and contact information."
-    author: Moritz-Maria von Igelfeld
+    author: Otter Tech Limited
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
     defaultTheme: light
@@ -44,7 +47,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["books","courses","papers","data"]
+    MainSections: ["projects","courses","papers","news"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -54,50 +57,34 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: Professor Dr von Igelfeld
-          subtitle: "I am a Professor in the Institute of Romance Philology at the University of Regensburg, Germany. My research focuses on Portuguese irregular verbs. I was a doctoral student of Professor Dr Dieter Vogelsang in Munich, and later a second assistant of Professor Walter Schoeffler-Henschell at the University of Wiesbaden."
-          imageUrl: "picture.jpeg"
+          title: Otter Tech
+          subtitle: "Technology that feels human. We design and ship AI powered solutions that make life easier, decisions clearer, and services more inclusive.✨"
+          imageUrl: "icon.png"
           imageWidth: 160
           imageHeight: 160
           buttons:
-            - name: Papers
-              url: papers/
-            - name: Data
-              url: data/
-            - name: Books
-              url: books/
+            - name: Projects
+              url: projects/
             - name: Courses
               url: courses/
-            - name: Tags
-              url: tags/
-            - name: Archive
-              url: archive/
-            - name: Blog
-              url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+            - name: Papers
+              url: paper/
+            - name: News
+              url: news/
+            - name: People
+              url: people/
+            - name: Contact
+              url: contact/
 
     socialIcons:
-        - name: CV
-          url: cv.pdf
-        - name: Email
-          url: mailto:igelfeld@regensburg.edu
-        - name: Zoom
-          url: https://www.zoom.us/my/igelfeld
-        - name: Location
-          url: location/
-        - name: Office Hours
-          url: officehours/
-        - name: Google Scholar
-          url: https://scholar.google.com/citations?user=cL23w-4AAAAJ
         - name: GitHub
           url: https://github.com/pmichaillat
-        - name: Substack
-          url: https://pmichaillat.substack.com
         - name: YouTube
           url: https://www.youtube.com/@pmichaillat
         - name: Twitter
           url: https://x.com/pmichaillat
-        - name: Bluesky
-          url: https://bsky.app/profile/pmichaillat.bsky.social
+        - name: Email
+          url: otterstanding@gmail.com
 
     assets:
         disableScrollBarStyle: true
@@ -105,9 +92,9 @@ params:
         hiddenInList: false
         hiddenInSingle: true
     label:
-      text: "Moritz-Maria von Igelfeld"
-      icon: favicon.ico
-      iconHeight: 18
+      text: "Otter Tech"
+      icon: "icon.png"
+      iconHeight: 40
 
 markup:
     goldmark:
