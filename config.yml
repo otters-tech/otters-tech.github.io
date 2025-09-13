@@ -1,4 +1,4 @@
-baseURL: "https://pascalmichaillat.org/hugo-website/" 
+baseURL: "https://otters-tech.github.io" 
 title: Otter Tech Limited
 theme: PaperMod
 
@@ -78,11 +78,11 @@ params:
 
     socialIcons:
         - name: GitHub
-          url: https://github.com/pmichaillat
+          url: https://otters-tech.github.io
         - name: YouTube
-          url: https://www.youtube.com/@pmichaillat
+          url: https://otters-tech.github.io
         - name: Twitter
-          url: https://x.com/pmichaillat
+          url: https://otters-tech.github.io
         - name: Email
           url: otterstanding@gmail.com
 
