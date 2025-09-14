@@ -68,7 +68,7 @@ params:
             - name: Courses
               url: courses/
             - name: Papers
-              url: paper/
+              url: papers/
             - name: News
               url: news/
             - name: People
