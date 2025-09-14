@@ -6,6 +6,10 @@
     margin-inline-end: auto;
     line-height: var(--header-height);
     background: var(--nav-bg);
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Standard */
 }
 
 .nav a {
