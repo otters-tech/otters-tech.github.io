@@ -2,7 +2,7 @@
 title: "Contact"
 date: 2025-09-13
 hidemeta: true
-description: "Professor Dr von Igelfeld's mailing and office addresses at the Institute of Romance Philology."
+description: "Get in touch with Otter Tech Limited. Find our phone, email, and office location."
 
 ---
 
