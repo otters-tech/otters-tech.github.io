@@ -315,7 +315,7 @@
 .share-buttons,
 .paginav {
     border-radius: var(--radius);
-    background: var(--code-bg);
+    background: var(--tertiary);
     border: 1px solid var(--border);
 }
 

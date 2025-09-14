@@ -1,7 +1,7 @@
 ---
 title: "QualBench: Benchmarking Chinese LLMs with Localized Professional Qualifications for Vertical Domain Evaluation" 
 date: 2025-09-03
-tags: ["LLM","Benchmark"]
+tags: ["LLM Application","Benchmark"]
 author: ["Mengze Hong","Wailing Ng"]
 description: "This paper proposes QualBench, the first benchmark to harness Chinese professional qualification exams, highlighting the importance of localized evaluation in vertical domains." 
 summary: "This paper proposes QualBench, the first benchmark to harness Chinese professional qualification exams, highlighting the importance of localized evaluation in vertical domains." 
