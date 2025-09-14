@@ -1,119 +1,59 @@
 ---
-title: "Lectures at the Villa of Reduced Circumstances"
-date: 2003-03-10
-aliases: 
-    - /courses/course2/slides4.pdf
-    - /courses/course2/slides1.pdf
-    - /courses/course2/slides3.pdf
-    - /courses/course2/slides2.pdf
-    - /courses/course2/notes3.pdf
-    - /courses/course2/notes4.pdf
-    - /courses/course2/ps3.pdf
-    - /courses/course2/ps4.pdf
-    - /courses/course1/quiz1.pdf
-    - /courses/course1/quiz2.pdf
-    - /courses/course2/quiz3.pdf
-    - /courses/course2/quiz4.pdf
-    - /courses/course1/ps1.pdf
-tags: ["Romance languages","philology","irregular verbs","Spanish","Portuguese"]
-author: "Moritz-Maria von Igelfeld"
-description: "This graduate course presents classical results in Romance philology." 
-summary: "This graduate course presents classical results in Romance philology. it focuses especially on Portugese and Spanish irregular verbs." 
+title: "Chat Melody — Assistant Chatbot for Music Education"
+date: 2024-09-10
+aliases: []
+tags: ["AI","Education","Music Theory","Teachable Agent","LLM","Chatbot"]
+author: "Mengze Hong"   # or "Mengze Hong" if you prefer personal credit
+description: "An assistant chatbot that teaches music theory through dialogue—improving learning gains and lowering cognitive load."
+summary: "LLM-powered teachable agent for music theory. Students teach the bot while analyzing scores with playback, leading to higher post-test scores and reduced cognitive load."
 cover:
-    image: "music.png"
-    alt: "Villa of Reduced Circumstances"
-    relative: true
+  image: "music.png"
+  alt: "Chat Melody — assistant chatbot for music education"
+  relative: true
 editPost:
-    URL: "https://github.com/pmichaillat/hugo-website"
-    Text: "Course portal"
-showToc: true
-disableAnchoredHeadings: false
+  URL: "https://github.com/mengze-hong/ChatMelody"   # update if your repo differs
+  Text: "Project Repo"
+showToc: false
+disableAnchoredHeadings: true
 
 ---
 
-## Introduction
+{{< figure src="music2.jpg" alt="Chat Melody Interface Design"
+           width="900" >}}
 
-This course covers research topics related to Romance philology. It focuses especially on Portugese and Spanish irregular verbs. It tries to answer several questions: 
+### Overview
 
-+ Why are there irregular verbs? 
-+ How are Portuguese irregular verbs different from Spanish irregular verbs? 
-+ What is the role of Latin and Greek in these irregularities? 
-+ What about irregular verbs in other Romance languages?
-    + Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. 
-    + Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-    + Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    + Excepteur sint occaecat cupidatat non proident.
-    
-Sunt in culpa qui officia deserunt mollit anim id est laborum.
+Chat Melody is an assistant chatbot for music education. Students learn music theory by teaching the assistant how they hear and see a piece. The assistant behaves like a curious learner and keeps the conversation focused on musical reasoning instead of shortcuts. The experience pairs score viewing with audio so learners connect notation, harmony, and form with what they hear.
+<br>
 
-## Part 1: Review of Romance languages
+### Why it matters
 
-This section reviews Romance languages. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Many learners memorize rules without building a stable sense of why chords and phrases work the way they do. One-to-one coaching is rare and feedback often comes late. Chat Melody gives structured guidance in the moment. It nudges students to justify choices, compare alternatives, and connect symbols on the page with sound in the ear. This helps turn facts into understanding.
+<br>
 
-##### Lecture videos
+### How students learn
 
-+ [Lecture video 1](https://youtu.be/3MZeJED2yns) – This is a first lecture video.
-+ [Lecture video 2](https://youtu.be/8ihJsf-AXdA) – This is a another lecture video.
-+ [Lecture video 3](https://youtu.be/79MSNfp1rw0) – This is a third lecture video. It is quite short.
+A student opens a short piece or excerpt and can view the score and play audio. The assistant asks a simple focus question that matches the task for example identify the cadence or outline the phrase. The student explains what they see and hear. The assistant reflects the explanation back, highlights gaps, and asks for specific evidence such as pitch content, position in the measure, or voice leading. When the student proposes a chord or label, the assistant requests a brief justification and a check against context. If the student is stuck, the assistant suggests the next small step rather than giving a full answer. At the end the assistant summarizes the reasoning chain so the student leaves with a clear record of how they reached the result.
+<br><br>
 
-##### Lecture notes
+{{< figure src="music3.png" alt="Chat Melody"
+           caption="Figure: Interface design of the LLM-powered Teachable Agent."
+           width="900" >}}
+<br>
 
-+ [Lecture note 1](lecture1.pdf)
+### Technology and architecture
 
-##### Readings
+Chat Melody is an LLM driven dialog system with domain scaffolding for tonal analysis. The conversation engine runs a small policy that turns student messages into intents such as identify, justify, compare, and reflect. Prompts are modular and draw on a bank of musical moves so the assistant can request evidence about pitch sets, inversion cues, harmonic function, and cadential patterns without revealing solutions.
 
-+ [Paper 1](https://pascalmichaillat.org/1.pdf) – This is a first paper to read.
-+ [Paper 2](https://pascalmichaillat.org/2.pdf) – This paper builds on the first one.
-+ [Paper 3](https://pascalmichaillat.org/4.pdf) – This paper is more complex.
+The score and audio layer presents notation and playback in the browser and supports note selection and section looping. The assistant can reference student selections through lightweight metadata so questions feel grounded in the page the learner is viewing. Common formats such as MusicXML and MIDI are supported to keep import simple.
 
-## Part 2: Portugese irregular verbs
+Session state keeps a compact memory of claims and evidence so the assistant can say what has already been established and what still needs support. A rubric store defines what good reasoning looks like for tasks such as roman numeral analysis or phrase labeling. That rubric drives hints, checks, and end summaries.
 
-This section introduces Portugese irregular verbs. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Safety and quality controls keep the assistant on task. The system limits the model to pedagogical actions, strips out requests for solutions, and logs unclear prompts for later tuning. Analytics capture only what is needed to improve coaching prompts and measure engagement. The service is deployable behind a school or studio account and can run against different model providers.
+<br>
 
-##### Lecture videos
+### What this enables
 
-+ [Lecture video 4](https://youtu.be/IZI0_WwIyb8)
-+ [Lecture video 5](https://youtu.be/Qz7CCB1-gu8)
-+ [Lecture video 6](https://youtu.be/79MSNfp1rw0)
+Instructors can assign practice that looks like real studio coaching and still scale to a full class. Learners get immediate guidance and a trace of their reasoning that they can review later. The same framework can support ear training, counterpoint, and form study by swapping the rubric and prompt bank while keeping the conversation engine and score layer the same.
 
-##### Lecture notes
-
-+ [Lecture note 2](lecture2.pdf)
-
-##### Readings
-
-+ [Paper 4](https://pascalmichaillat.org/5.pdf) – This paper computes things. (Details about the simulations are presented in the paper's [online appendix](https://pascalmichaillat.org/5a.pdf).)
-+ [Paper 5](https://pascalmichaillat.org/3.pdf) – This paper proves things. (The paper's [online appendix](https://pascalmichaillat.org/3a.pdf) contains long proofs and extensions of the results.)
-
-
-## Part 3: Spanish irregular verbs
-
-This section quickly discusses irregular verbs in Spanish. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-
-##### Lecture videos
-
-+ [Lecture video 7](https://youtu.be/pIS8-mXG1oY)
-+ [Lecture video 8](https://youtu.be/FUaeNM8_fxs)
-+ [Optional lecture video](https://youtu.be/xjHVrx7jfdY)
-
-##### Basic readings
-
-+ [Paper 6](https://pascalmichaillat.org/10.pdf)
-
-##### Advanced readings
-
-+ [Paper 7](https://pascalmichaillat.org/11.pdf)
-+ [Paper 8](https://pascalmichaillat.org/12.pdf)
-
-## Conclusion
-
-This section concludes by comparing Portuguese and Spanish irregular verbs to irregular verbs in other Romance languages. 
-
-> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst. Quisque non felis. Nullam vulputate libero quis ligula. Fusce scelerisque suscipit sapien. Suspendisse commodo ullamcorper magna. 
-> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
