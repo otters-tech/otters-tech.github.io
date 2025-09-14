@@ -336,7 +336,7 @@
 .share-buttons,
 .paginav {
     border-radius: var(--radius);
-    background: var(--code-bg);
+    background: var(--tertiary);
 }
 
 .post-tags a {
