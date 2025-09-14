@@ -32,7 +32,7 @@ menu:
           weight: 5
 
 params:
-    description: "This website hosts Moritz-Maria von Igelfeld's research papers, books, course materials, data, curriculum vitae, and contact information."
+    description: "Technology that feels human. We design and ship AI powered solutions that make life easier, decisions clearer, and services more inclusive."
     author: Otter Tech Limited
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
