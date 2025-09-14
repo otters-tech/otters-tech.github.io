@@ -20,7 +20,7 @@ author: "Moritz-Maria von Igelfeld"
 description: "This graduate course presents classical results in Romance philology." 
 summary: "This graduate course presents classical results in Romance philology. it focuses especially on Portugese and Spanish irregular verbs." 
 cover:
-    image: "course1.png"
+    image: "music.png"
     alt: "Villa of Reduced Circumstances"
     relative: true
 editPost:
