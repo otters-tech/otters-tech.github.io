@@ -135,8 +135,8 @@
 {{- end }}
 
 {{ if .IsHome }}
-  <!-- Background video layer -->
-  <div class="video-bg" aria-hidden="true">
+  <!-- Floating corner video (home page only) -->
+  <div class="video-float" aria-hidden="true">
     <video id="otterHeroVideo" autoplay muted loop playsinline>
       <source src='{{ "video/bg.mp4" | relURL }}' type="video/mp4">
     </video>
@@ -145,70 +145,51 @@
   <style>
     /* ===== Tweakables ===== */
     :root{
-      --hero-plate-width: min(1100px, 92vw);   /* max width of the white plate */
-      --hero-plate-pad-block: 48px;            /* vertical padding */
-      --hero-plate-pad-inline: 40px;           /* horizontal padding */
-      --hero-plate-radius: 24px;
-      --hero-plate-bg: rgba(255,255,255,.92);  /* 1 = pure white */
-      --hero-plate-shadow: 0 12px 36px rgba(0,0,0,.14);
+      /* overall size & placement */
+      --vf-width: min(480px, 35vw);     /* make smaller/larger here */
+      --vf-aspect: 3 / 1;               /* wide (3:1). For tall video use: 1 / 3 */
+      --vf-offset: 20px;                /* space from screen edges */
+
+      /* frame look */
+      --vf-radius: 16px;
+      --vf-border: 2px solid rgba(255,255,255,.95);
+      --vf-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
 
-    /* Background video behind everything */
-    .video-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
-    .video-bg::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.30); }
-    .video-bg video { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-
-    /* Keep page content above the video */
-    #main, main, .main, .profile-mode, .home-info { position: relative; z-index: 1; }
-
-    /* We previously made cards transparent. Keep that, but we will explicitly
-       set the hero container's background back to a white plate below. */
-    .profile-mode, .home-info, .first-entry, .page, .post-entry {
-      background: transparent !important;
-      box-shadow: none !important;
-      backdrop-filter: none !important;
+    /* Floating framed video in bottom-right */
+    .video-float{
+      position: fixed;
+      right: var(--vf-offset);
+      bottom: var(--vf-offset);
+      width: var(--vf-width);
+      aspect-ratio: var(--vf-aspect);
+      background: #000;
+      border-radius: var(--vf-radius);
+      border: var(--vf-border);
+      box-shadow: var(--vf-shadow);
+      overflow: hidden;
+      z-index: 40;
+      pointer-events: none; /* decorative; doesn't block clicks */
+    }
+    .video-float video{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;   /* fill the frame */
+      display: block;
     }
 
-    /* ====== Put the big white plate directly on the hero container ======
-       PaperMod profileMode uses .profile-mode .profile-inner.
-       Some variants also wrap it with .home-info.
-       We style BOTH so it works on your build. */
-    .profile-mode .profile-inner,
-    .home-info {
-      background: var(--hero-plate-bg) !important;
-      border-radius: var(--hero-plate-radius) !important;
-      box-shadow: var(--hero-plate-shadow) !important;
-
-      width: var(--hero-plate-width);
-      max-width: 100%;
-      margin: 0 auto;
-
-      padding: var(--hero-plate-pad-block) var(--hero-plate-pad-inline);
-    }
-
-    /* Dark text on the white plate */
-    .profile-mode .profile-inner h1,
-    .profile-mode .profile-inner p,
-    .home-info h1,
-    .home-info p,
-    .home-info .buttons a {
-      color: #0f172a !important;
-      text-shadow: none !important;
-    }
-
-    /* Small screens: tighten plate */
+    /* Small screens */
     @media (max-width: 640px){
       :root{
-        --hero-plate-pad-block: 28px;
-        --hero-plate-pad-inline: 18px;
-        --hero-plate-radius: 18px;
+        --vf-width: min(360px, 60vw);
+        --vf-offset: 12px;
+        --vf-radius: 12px;
       }
     }
 
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce){
-      .video-bg video { display: none; }
-      .video-bg { background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.6)); }
+      .video-float{ display:none; }
     }
   </style>
 
@@ -225,6 +206,7 @@
     })();
   </script>
 {{ end }}
+
 
 
 
